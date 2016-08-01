@@ -1,14 +1,6 @@
 module QuestionsHelper
 	require 'numbers_in_words'
 
-	def number_to_word(number)
-		return NumbersInWords.in_words(number)
-	end
-
-	def word_to_number(word)
-		return NumbersInWords.in_numbers(word)
-	end
-
 	def is_correct(original_ans, user_ans)
 		if user_ans.downcase == "zero"
 			return true
