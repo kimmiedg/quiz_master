@@ -1,0 +1,23 @@
+h2 style="text-align: center; color: #47E116;" You've completed the Quiz.
+br
+br
+table.table.table-striped align="center" style="width: 100%;"
+	thead
+		tr
+			th width="60%" Question
+			th Result
+			th Your Answer
+			th Correct Answer
+	tbody
+		- @questions.each do |question|
+			tr
+				td = question[:question].title
+				td = question[:is_passed] ? "Correct" : "Wrong" 
+				th = question[:answer]
+				td = question[:question].answer
+div.pull-right				
+	| &nbsp; Score:   
+	= get_scores(@questions)[:correct_score]
+	| /
+	= @questions.count
+= link_to "Take Another Quiz", categories_path, class: "btn btn-primary"

@@ -1,0 +1,6 @@
+h4 New Category
+
+.input-group style="width: 40%"
+	= form_for @category do |f|
+		= f.text_field :name, placeholder: "Name", class: "form-control"
+		= f.submit "Save", class: "btn btn-primary pull-right", style: "margin-top: 5px"

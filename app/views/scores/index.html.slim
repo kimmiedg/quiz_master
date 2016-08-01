@@ -1,0 +1,16 @@
+h4 Score Logs
+br
+table.table.table-striped style="width: 100%;"
+	thead
+		tr
+			th Category
+			th Correct Points
+			th Wrong Points
+			th Date Taken
+	tbody
+		- @scores.each do |score|
+			tr
+				th = score.category.name
+				th = score.correct_points
+				th = score.wrong_points
+				th = score.created_at.strftime("%B %d, %Y")

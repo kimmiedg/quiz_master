@@ -1,0 +1,12 @@
+h4 = @question.category.name + " " + "Category "
+br
+br
+p style="font-weight: bold" Question: 
+p = @question.title
+.form-group style="width: 20%"
+	= form_for '/random' do 
+		= text_field_tag :answer, '', placeholder: "Answer", class: "form-control"
+		| &nbsp;
+		= submit_tag "next", class: "btn btn-success pull-right", style: 'margin-top: 5px'
+br
+br

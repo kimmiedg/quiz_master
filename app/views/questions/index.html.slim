@@ -1,0 +1,27 @@
+= link_to "All Categories", categories_path, class: "btn btn-default pull-left"
+- if current_user.is_admin?
+	= link_to "Add Question", new_question_path, class: "btn btn-success pull-right"
+- else
+	= link_to "Start Quiz", question_random_path(session[:question_id].sample), class: 'btn btn-success pull-right' if session[:question_id].present?
+br	
+br
+table.table.table-striped style="width: 100%"
+	thead
+		tr
+			th Question
+			- if current_user.is_admin?
+				th Answer
+				th Action
+	tbody
+		- @questions.each do |question|
+			tr
+				td = question.title
+				- if current_user.is_admin?
+					td = question.answer
+					td 
+						= link_to "Edit", edit_question_path(question), class: "btn btn-primary"
+						| &nbsp;
+						= link_to "Destroy", question_path(question), method: :delete, class: "btn btn-danger"
+						/ | &nbsp;
+						/ = link_to "Answer", question_path(question), class: "btn btn-success"
+						/ = link_to "Answer", question_post_answer_path(question), class: "btn btn-success"

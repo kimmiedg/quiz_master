@@ -1,0 +1,18 @@
+h3 style="text-align: center; margin-top: 10%" Sign Up
+br
+br
+.col-md-4
+.col-md-4
+	.input_group 
+		= form_for @user do |f|
+			 = f.text_field :name, placeholder: "name", class: "form-control"
+			 = f.email_field :email, placeholder: "email", class: "form-control", style: "margin-top: 5px"
+			 = f.password_field :password, placeholder: "password", class: "form-control", style: "margin-top: 5px"
+			 = f.password_field :password_confirmation, placeholder: "password", class: "form-control", style: "margin-top: 5px"
+			 = f.hidden_field :is_admin, value: false
+			 = f.submit "Register", class: "btn btn-primary form-control", style: "margin-top: 5px"
+			 br
+			 br
+			 | &nbsp; Already a user?
+			 = link_to 'Sign In', '/login', style: "text-align: center"
+.col-md-4

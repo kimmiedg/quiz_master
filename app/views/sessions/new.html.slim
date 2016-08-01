@@ -1,0 +1,17 @@
+h3 style="text-align: center; margin-top: 10%" Sign In
+br
+br
+.col-md-4
+.col-md-4
+	.input_group 
+		= form_for '/login' do 
+			= email_field_tag :email, '', placeholder: "email", class: 'form-control'
+			= password_field_tag :password, '', placeholder: "password", class: 'form-control', style: "margin-top: 5px;"
+			br
+			= submit_tag "Log In", class: 'btn btn-primary form-control'
+			br
+			br
+			| &nbsp; Not yet a user?
+			| &nbsp;
+			= link_to 'Register', '/signup', style: "text-align: center"
+.col-md-4

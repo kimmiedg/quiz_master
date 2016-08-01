@@ -1,0 +1,16 @@
+h4 New Question 
+br
+br
+.input-group
+	= form_for @question do |f|
+		= f.label "Question"
+		= f.bootsy_area :title, class: 'form-control', style: "width:100%", placeholder: "Question"
+		br
+		br
+		= f.label "Answer", style: "margin-top: 5px", style: "margin-top: 25px"
+		= f.text_field :answer, class: 'form-control', placeholder: "Answer"
+		br
+		= f.label "Category", style: "margin-top: 25px"
+		br
+		= f.collection_select :category_id, Category.order(:name), :id, :name, class: 'form-control'
+		= f.submit "Create", class: 'btn btn-primary form-control', style: "margin-top: 25px"
